@@ -7,10 +7,11 @@ import uuid
 from models import storage
 from models.base_model import BaseModel
 
+
 class HBNBCommand(cmd.Cmd):
-    intro = "Welcome to My Command Interpreter. Type 'help' for a list of available commands."
+    intro = "Welcome hbnb"
     prompt = "(hbnb) "
-    
+
     def emptyline(self):
         pass
 
@@ -26,7 +27,7 @@ class HBNBCommand(cmd.Cmd):
             print(new_instance.id)
 
     def do_show(self, line):
-        """Print the string representation of an instance based on class name and id."""
+        """Print the string representation of instance (class name and id.)"""
         args = line.split()
         if not args:
             print("** class name missing **")
@@ -63,7 +64,7 @@ class HBNBCommand(cmd.Cmd):
                 storage.save()
 
     def do_all(self, line):
-        """Print all string representations of instances based on class name or all."""
+        """Print all string representations of instances."""
         args = line.split()
         obj_list = []
         obj_dict = storage.all()
@@ -81,7 +82,7 @@ class HBNBCommand(cmd.Cmd):
             print(obj_list)
 
     def do_update(self, line):
-        """Updates an instance based on class name and id with a new attribute value."""
+        """Updates an instance with a new attribute value."""
         args = line.split()
         if not args:
             print("** class name missing **")
@@ -127,6 +128,7 @@ class HBNBCommand(cmd.Cmd):
 
     def postloop(self):
         print("Exiting the command-line interpreter. Goodbye!")
+
 
 if __name__ == "__main__":
     cmd_instance = HBNBCommand()

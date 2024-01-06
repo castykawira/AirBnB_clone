@@ -10,7 +10,17 @@ from datetime import datetime
 class TestBaseModel(unittest.TestCase):
     """BaseModel class test cases"""
 
-    def test_inequality_of_two_different_objects_ids(self):
+   def test_basic(self):
+        """
+        Tests basic imputs for the BaseModel class
+        """
+        my_model = BaseModel()
+        my_model.name = "ALX"
+        my_model.number = 89
+        self.assertEqual([my_model.name, my_model.number],
+                         ["ALX", 89])
+        
+   def test_inequality_of_two_different_objects_ids(self):
         """Inequality of two different objects ids"""
         base_model1 = BaseModel()
         base_model2 = BaseModel()
